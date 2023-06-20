@@ -5,14 +5,15 @@ export const DivRegister = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  background-color: #000000;
+  height: 100%;
+  background-color: var(--Grey-4);
   padding: 25px 20px;
   color: white;
+  font-family: var(--base-font);
 
   h2:nth-child(1) {
     text-align: center;
-    color: rgba(255, 87, 127, 1);
+    color: var(--Color-primary);
     font-weight: bold;
     font-size: 1.6rem;
   }
@@ -25,7 +26,7 @@ export const DivFormRegister = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 33.6911px 17.6477px;
-  background: #212529;
+  background: var(--Grey-3);
   width: 90%;
   max-width: 369px;
   min-width: 296px;
@@ -45,18 +46,18 @@ export const DivFormRegister = styled.div`
   }
 
   p {
-    font-family: "Inter";
+    
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
     line-height: 18px;
-    color: #868e96;
+    color: var(--Grey-1);
   }
 `;
 
 export const InputRegister = styled.input`
   background: #343b41;
-  border: 1.2182px solid #f8f9fa;
+  border: 1.2182px solid var(--Grey-2);
   border-radius: 4px;
   height: 30px;
   width: 100%;
@@ -66,11 +67,11 @@ export const InputRegister = styled.input`
   font-weight: 400;
   font-size: 16.2426px;
   line-height: 26px;
-  color: #f8f9fa;
+  color: var(--Grey-1);
 `;
 export const SelectRegister = styled.select`
   background: #343b41;
-  border: 1.2182px solid #f8f9fa;
+  border: 1.2182px solid var(--Grey-2);
   border-radius: 4px;
   height: 30px;
   width: 100%;
@@ -80,7 +81,7 @@ export const SelectRegister = styled.select`
   font-weight: 400;
   font-size: 16.2426px;
   line-height: 26px;
-  color: #f8f9fa;
+  color: var(--Grey-1);
 `;
 
 export const ButonRegister = styled.button`
@@ -90,8 +91,8 @@ export const ButonRegister = styled.button`
   min-width: 280px;
   max-width: 324px;
   height: 48px;
-  background: #ff577f;
-  border: 1.2182px solid #ff577f;
+  background: var(--Color-primary);
+  border: 1.2182px solid var(--Color-primary);
   border-radius: 4.06066px;
   font-style: normal;
   font-weight: 500;
@@ -117,12 +118,12 @@ export const HeaderButton = styled(Link)`
   text-decoration: none;
   width: 79.54px;
   height: 31.95px;
-  background: #212529;
+  background: var(--Grey-3);
   border-radius: 4px;
   font-style: normal;
   font-weight: 600;
   font-size: 9.59437px;
   line-height: 23px;
   text-align: center;
-  color: #f8f9fa;
+  color: var(--Grey-0);
 `;

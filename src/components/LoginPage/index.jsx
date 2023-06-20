@@ -23,6 +23,7 @@ export function LoginPage() {
     try {
       await api.post("/sessions", data).then((res) => {
         window.localStorage.clear();
+        console.log(res.data.token)
         window.localStorage.setItem("authToken", res.data.token);
         window.localStorage.setItem("userId", res.data.user.id);
 

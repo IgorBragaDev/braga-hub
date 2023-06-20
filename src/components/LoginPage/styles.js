@@ -8,11 +8,12 @@ export const DivLogin = styled.div`
   height: 100vh;
   background-color: #000000;
   padding: 95px 20px;
-  color: white;
+  color: var(--Grey-0);
+  font-family: var(--base-font);
 
   h2:nth-child(1) {
     text-align: center;
-    color: rgba(255, 87, 127, 1);
+    color: var(--Color-primary);
     font-weight: bold;
     font-size: 1.6rem;
   }
@@ -33,7 +34,7 @@ export const DivForm = styled.div`
   min-width: 296px;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  height: 85%;
+  height: 90%;
   max-height: 540px;
 
   div {
@@ -48,18 +49,18 @@ export const DivForm = styled.div`
   }
 
   p {
-    font-family: "Inter";
+    
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
     line-height: 18px;
-    color: #868e96;
+    color: var(--Grey-1);
   }
 `;
 
 export const Input = styled.input`
   background: #343b41;
-  border: 1.2182px solid #f8f9fa;
+  border: 1.2182px solid var(--Grey-0);
   border-radius: 4px;
   height: 48px;
   width: 100%;
@@ -69,7 +70,7 @@ export const Input = styled.input`
   font-weight: 400;
   font-size: 16.2426px;
   line-height: 26px;
-  color: #f8f9fa;
+  color: var(--Grey-0);
 `;
 
 export const Buton = styled.button`
@@ -79,14 +80,14 @@ export const Buton = styled.button`
   min-width: 280px;
   max-width: 324px;
   height: 48px;
-  background: #ff577f;
-  border: 1.2182px solid #ff577f;
+  background: var(--Color-primary);
+  border: 1.2182px solid var(--Color-primary);
   border-radius: 4.06066px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  color: #ffffff;
+  color: var(--Grey-0);
 `;
 
 export const LinkTeste = styled(Link)`
@@ -99,13 +100,13 @@ export const LinkTeste = styled(Link)`
   width: 100%;
   min-width: 280px;
   max-width: 324px;
-  height: 44px;
-  background: rgba(134, 142, 150, 1);
-  border: 1.2182px solid rgba(134, 142, 150, 1);
+  height: 48px;
+  background: var(--Grey-1);
+  border: 1.2182px solid var(--Grey-1);
   border-radius: 4.06066px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  color: #ffffff;
+  color: var(--Grey-0);
 `;

@@ -3,7 +3,7 @@ import { api } from "../../service";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import { formSchema } from "../../utils/schema";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   DivRegister,
   DivFormRegister,
@@ -12,10 +12,11 @@ import {
   ButonRegister,
   DivDeGap,
   DivHeader,
-  HeaderButton
+  HeaderButton,
 } from "./style";
-import { Input } from "../LoginPage/styles";
+
 export function Register() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,7 +32,7 @@ export function Register() {
         },
       });
       toast.success("A conta foi criada", { autoClose: 2000 });
-      <Link to="/" />;
+      navigate("/");
     } catch (error) {
       toast.error("Deu erro", { autoClose: 2000 });
     }
