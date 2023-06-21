@@ -5,7 +5,7 @@ export const DivLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   background-color: #000000;
   padding: 95px 20px;
   color: var(--Grey-0);
@@ -35,7 +35,7 @@ export const DivForm = styled.div`
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
   height: 90%;
-  max-height: 540px;
+  max-height: 570px;
 
   div {
     display: flex;
@@ -49,7 +49,6 @@ export const DivForm = styled.div`
   }
 
   p {
-    
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

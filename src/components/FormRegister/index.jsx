@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { api } from "../../service";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
-import { formSchema } from "../../utils/schema";
+import { registerSchema } from "../../utils/registerSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 import {
   DivRegister,
@@ -22,7 +22,7 @@ export function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: zodResolver(registerSchema),
   });
   const onSubmit = async (data) => {
     try {

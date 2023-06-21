@@ -2,28 +2,25 @@ import { useForm } from "react-hook-form";
 import { api } from "../../service";
 import { LinkTeste } from "./styles";
 import { ToastContainer, toast } from "react-toastify";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { DivLogin, DivForm, Input, Buton } from "./styles";
+import { loginSchema } from "../../utils/loginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const formSchema = yup.object().shape({
-    email: yup.string().required("nome Obrigatorio"),
-    password: yup.string().required("senha obrigatoria"),
-  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+  } = useForm({ resolver: zodResolver(loginSchema) });
 
   const onSubmit = async (data) => {
     try {
       await api.post("/sessions", data).then((res) => {
         window.localStorage.clear();
-        console.log(res.data.token)
+        console.log(res.data.token);
         window.localStorage.setItem("authToken", res.data.token);
         window.localStorage.setItem("userId", res.data.user.id);
 

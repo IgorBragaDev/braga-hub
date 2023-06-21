@@ -19,12 +19,15 @@ export function Dash() {
         .then((res) => {
           setDados(res.data);
         });
-    } catch (error) {}
+    } catch (error) {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
     userLogado();
   }, []);
+
   function sair() {
     localStorage.clear();
     navigate("/");
