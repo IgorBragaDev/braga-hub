@@ -7,6 +7,7 @@ import { DivLogin, DivForm, Input, Buton } from "./styles";
 import { loginSchema } from "../../utils/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { InputIv } from "../Input/input";
 export function LoginPage() {
   const navigate = useNavigate();
 
@@ -39,11 +40,13 @@ export function LoginPage() {
       <DivForm>
         <h3>Login</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
+           <div>
             <label htmlFor="email">Email</label>
             <Input type="text" id="email" {...register("email")} />
             <p>{errors.email?.message}</p>
-          </div>
+          </div> 
+      
+           
           <div>
             <label htmlFor="password">Senha</label>
             <Input
