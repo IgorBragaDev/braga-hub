@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import { api } from "../../service";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,15 +7,14 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   DivRegister,
   DivFormRegister,
-  InputRegister,
   SelectRegister,
   ButonRegister,
   DivDeGap,
   DivHeader,
   HeaderButton,
 } from "./styles";
-import { StyledLogo } from "../../components/Logo/styles";
-
+import { Logo } from "../../components/Logo/logo";
+import { Inputs } from "../../components/Input/input";
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -27,7 +25,9 @@ export function RegisterPage() {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
+  console.log(errors);
   const onSubmit = async (data) => {
+    console.log(data);
     try {
       await api.post("/users", data, {
         headers: {
@@ -45,7 +45,7 @@ export function RegisterPage() {
     <DivRegister>
       <header>
         <DivHeader>
-          <StyledLogo>Kenzie Hub </StyledLogo>
+          <Logo />
           <HeaderButton to="/">Voltar</HeaderButton>
         </DivHeader>
       </header>
@@ -56,74 +56,61 @@ export function RegisterPage() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="name">Nome</label>
-            <InputRegister
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Digite aqui seu nome"
-              {...register("name")}
-            />
-            <p>{errors.name?.message}</p>
-          </div>
-          <div>
-            <label htmlFor="email">Email </label>
-            <InputRegister
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Digite aqui seu email"
-              {...register("email")}
-            />
-            <p>{errors.email?.message}</p>
-          </div>
-          <div>
-            <label htmlFor="password">Senha</label>
-            <InputRegister
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Digite aqui sua senha"
-              {...register("password")}
-            />
-            <p>{errors.password?.message}</p>
-          </div>
-          <div>
-            <label htmlFor="checkpasssword">Confirme sua senha </label>
-            <InputRegister
-              type="password"
-              name="checkpassword"
-              id="checkpassword"
-              placeholder="Confirme sua senha"
-              {...register("checkpassword")}
-            />
-            <p>{errors.checkpassword?.message}</p>
-          </div>
+          <Inputs
+            id={"name"}
+            label={"Nome"}
+            type={"text"}
+            handle={register("name")}
+            error={errors.name?.message}
+          />
+
+          <Inputs
+            id={"email"}
+            label={"Email"}
+            type={"text"}
+            handle={register("email")}
+            error={errors.email?.message}
+          />
+
+          <Inputs
+            id={"password"}
+            label={"Senha"}
+            type={"password"}
+            handle={register("password")}
+            error={errors.password?.message}
+          />
+
+          <Inputs
+            id={"checkpassword"}
+            label={"Confirme sua senha"}
+            type={"password"}
+            handle={register("checkpassword")}
+            error={errors.checkpassword?.message}
+          />
           <DivDeGap>
-            <div>
-              <label htmlFor="bio">Bio</label>
-              <InputRegister
-                type="text"
-                name="bio"
-                id="bio "
-                placeholder="Fale sobre você"
-                {...register("bio")}
-              />
-            </div>
-            <div>
-              <label htmlFor="contato">Contato</label>
-              <InputRegister
-                type="text"
-                name="contato"
-                id="contato"
-                placeholder="Opçao de contato"
-                {...register("contact")}
-              />
-            </div>
+            <Inputs
+              id={"bio"}
+              label={"Bio"}
+              type={"text"}
+              handle={register("bio")}
+              error={errors.bio?.message}
+            />
+
+            <Inputs
+              id={"contato"}
+              label={"Contato"}
+              type={"text"}
+              handle={register("contact")}
+              error={errors.contact?.message}
+            />
             <div>
               <label htmlFor="nivel">Selecionar módulo</label>
-              <SelectRegister name="nivel" id="" {...register("course_module")}>
+              <SelectRegister
+                name="nivel"
+                id="nivel"
+                {...register("course_module")}
+              >
+                <option value=""> Escolha um nivel</option>
                 <option value="Primeiro módulo (Introdução ao Frontend)">
                   Primeiro módulo (Introdução ao Frontend)
                 </option>
@@ -137,6 +124,7 @@ export function RegisterPage() {
                   Quarto módulo (Backend Avançado)
                 </option>
               </SelectRegister>
+              <p>{errors.course_module?.message}</p>
             </div>
             <ButonRegister>Cadastrar</ButonRegister>
           </DivDeGap>

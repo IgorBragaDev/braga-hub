@@ -5,15 +5,24 @@ export const DivRegister = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 130vh;
   background-color: var(--Grey-4);
   padding: 25px 20px;
   color: white;
   font-family: var(--base-font);
 
-
   h3:nth-child(1) {
     text-align: center;
+  }
+
+  input {
+    border: transparent;
+  }
+  label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+
+    color: var(--Grey-1);
   }
 `;
 export const DivFormRegister = styled.div`
@@ -27,8 +36,6 @@ export const DivFormRegister = styled.div`
   min-width: 296px;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  height: 100%;
-  max-height: 740px;
 
   div {
     display: flex;
@@ -41,7 +48,6 @@ export const DivFormRegister = styled.div`
   }
 
   p {
-    
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -50,25 +56,11 @@ export const DivFormRegister = styled.div`
   }
 `;
 
-export const InputRegister = styled.input`
-  background: #343b41;
-  border: 1.2182px solid var(--Grey-2);
-  border-radius: 4px;
-  height: 30px;
-  width: 100%;
-  min-width: 280px;
-  max-width: 324px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16.2426px;
-  line-height: 26px;
-  color: var(--Grey-1);
-`;
 export const SelectRegister = styled.select`
   background: #343b41;
   border: 1.2182px solid var(--Grey-2);
   border-radius: 4px;
-  height: 30px;
+  height: 48px;
   width: 100%;
   min-width: 280px;
   max-width: 324px;
