@@ -2,15 +2,17 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { RouterMain } from "./routes/routes";
 import { GlobalStyle } from "./styles/globalStyles";
-import { GlobalProvider } from "./providers";
 import { UserProvider } from "./providers/userprovider";
+import { TechProvider } from "./providers/techProvider";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        <GlobalStyle />
-        <RouterMain />
+        <TechProvider>
+          <GlobalStyle />
+          <RouterMain />
+        </TechProvider>
         <ToastContainer />
       </UserProvider>
     </div>

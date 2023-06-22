@@ -10,7 +10,10 @@ export const DashContainer = styled.div`
     color: white;
 
     @media (min-width: 1024px) {
-      display: block;
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
 
     h3 {
@@ -31,7 +34,7 @@ export const DashContainer = styled.div`
     }
   }
 
-  .pageContainer{
+  .pageContainer {
     margin: 0 auto;
     width: 100%;
     max-width: 1024px;
@@ -63,7 +66,6 @@ export const DivHeader = styled.div`
 `;
 
 export const DivBody = styled.div`
-  
   h2 {
     padding: 13px 20px;
     font-family: var(--base-font);
@@ -83,7 +85,7 @@ export const DivBody = styled.div`
     line-height: 22px;
     color: var(--Grey-1);
   }
-  @media (min-width:1024px) {
+  @media (min-width: 1024px) {
     display: flex;
     justify-content: space-between;
   }

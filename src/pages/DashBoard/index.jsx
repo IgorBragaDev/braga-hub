@@ -1,39 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { api } from "../../service";
 import { DivHeader, DashContainer, DivBody } from "./styles";
 import { Link, useNavigate } from "react-router-dom";
-
-
+import { TechContext } from "../../providers/techProvider";
 
 export function DashBoard() {
-  const userToken = localStorage.getItem("authToken");
-  const navigate = useNavigate();
-  const [dados, setDados] = useState({});
-  const userLogado = async () => {
-    try {
-      await api
-        .get("/profile", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userToken}`,
-          },
-        })
-        .then((res) => {
-          setDados(res.data);
-        });
-    } catch (error) {
-      navigate("/");
-    }
-  };
+  const { userLogado, dados, logout } = useContext(TechContext);
 
   useEffect(() => {
     userLogado();
   }, []);
 
-  function sair() {
-    localStorage.clear();
-    navigate("/");
-  }
   return (
     <DashContainer>
       <div className="pageContainer">
@@ -41,7 +18,7 @@ export function DashBoard() {
           <header>
             <DivHeader>
               <h2>Kenzie hub </h2>
-              <button onClick={sair}>Sair</button>
+              <button onClick={logout}>Sair</button>
             </DivHeader>
           </header>
         </div>
@@ -52,11 +29,12 @@ export function DashBoard() {
         </DivBody>
 
         <div className="informContainer">
-          <h3>Que pena ! Estamos em desenvolvimento :( </h3>
-          <p>
-            Nossa aplicação esta em desenvolvimento em breve teremos novidades
-          </p>
+          <h3> Tecnologias </h3>
+
+          <button>adcionar</button>
         </div>
+
+        <div></div>
       </div>
     </DashContainer>
   );
