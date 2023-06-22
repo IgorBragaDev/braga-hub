@@ -11,12 +11,7 @@ export const DivRegister = styled.div`
   color: white;
   font-family: var(--base-font);
 
-  h2:nth-child(1) {
-    text-align: center;
-    color: var(--Color-primary);
-    font-weight: bold;
-    font-size: 1.6rem;
-  }
+
   h3:nth-child(1) {
     text-align: center;
   }

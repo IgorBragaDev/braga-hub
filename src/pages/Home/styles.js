@@ -11,12 +11,7 @@ export const DivLogin = styled.div`
   color: var(--Grey-0);
   font-family: var(--base-font);
 
-  h2:nth-child(1) {
-    text-align: center;
-    color: var(--Color-primary);
-    font-weight: bold;
-    font-size: 1.6rem;
-  }
+ 
   h3:nth-child(1) {
     text-align: center;
   }
@@ -34,14 +29,10 @@ export const DivForm = styled.div`
   min-width: 296px;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  height: 90%;
+  height: 100%;
   max-height: 570px;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
+
   form {
     width: 100%;
     min-width: 280px;
@@ -57,20 +48,6 @@ export const DivForm = styled.div`
   }
 `;
 
-export const Input = styled.input`
-  background: #343b41;
-  border: 1.2182px solid var(--Grey-0);
-  border-radius: 4px;
-  height: 48px;
-  width: 100%;
-  min-width: 280px;
-  max-width: 324px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16.2426px;
-  line-height: 26px;
-  color: var(--Grey-0);
-`;
 
 export const Buton = styled.button`
   padding: 0px 22.3336px;

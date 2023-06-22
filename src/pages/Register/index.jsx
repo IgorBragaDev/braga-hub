@@ -15,6 +15,7 @@ import {
   DivHeader,
   HeaderButton,
 } from "./styles";
+import { StyledLogo } from "../../components/Logo/styles";
 
 
 export function RegisterPage() {
@@ -44,7 +45,7 @@ export function RegisterPage() {
     <DivRegister>
       <header>
         <DivHeader>
-          <h2>Kenzie Hub </h2>
+          <StyledLogo>Kenzie Hub </StyledLogo>
           <HeaderButton to="/">Voltar</HeaderButton>
         </DivHeader>
       </header>
