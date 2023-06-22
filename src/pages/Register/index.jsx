@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
-import { api } from "../../service";
-import { ToastContainer, toast } from "react-toastify";
 import { registerSchema } from "../../utils/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link, useNavigate } from "react-router-dom";
 import {
   DivRegister,
   DivFormRegister,
@@ -15,9 +12,12 @@ import {
 } from "./styles";
 import { Logo } from "../../components/Logo/logo";
 import { Inputs } from "../../components/Input/input";
+import { useContext } from "react";
+import { UserContext } from "../../providers/userprovider";
 
 export function RegisterPage() {
-  const navigate = useNavigate();
+  const { onSubmitRegister } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -25,21 +25,6 @@ export function RegisterPage() {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-  console.log(errors);
-  const onSubmit = async (data) => {
-    console.log(data);
-    try {
-      await api.post("/users", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      toast.success("A conta foi criada", { autoClose: 2000 });
-      navigate("/");
-    } catch (error) {
-      toast.error("Deu erro", { autoClose: 2000 });
-    }
-  };
 
   return (
     <DivRegister>
@@ -55,7 +40,7 @@ export function RegisterPage() {
           <p>Rápido e grátis,vamos nessa</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmitRegister)}>
           <Inputs
             id={"name"}
             label={"Nome"}

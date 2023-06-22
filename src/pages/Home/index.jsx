@@ -1,16 +1,14 @@
 import { useForm } from "react-hook-form";
-import { api } from "../../service";
-import { LinkTeste } from "./styles";
-import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
-import { DivLogin, DivForm, Buton } from "./styles";
+import { DivLogin, DivForm, Buton,LinkTeste } from "./styles";
 import { loginSchema } from "../../utils/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { StyledLogo } from "../../components/Logo/styles";
 import { Inputs } from "../../components/Input/input";
+import { UserContext } from "../../providers/userprovider";
+import { useContext } from "react";
 
 export function Home() {
-  const navigate = useNavigate();
+  const { onSubmitLogin } = useContext(UserContext);
 
   const {
     register,
@@ -18,20 +16,6 @@ export function Home() {
     formState: { errors },
   } = useForm({ resolver: zodResolver(loginSchema) });
 
-  const onSubmit = async (data) => {
-    try {
-      await api.post("/sessions", data).then((res) => {
-        window.localStorage.clear();
-        window.localStorage.setItem("authToken", res.data.token);
-        window.localStorage.setItem("userId", res.data.user.id);
-
-        navigate("/dashboard");
-      });
-      toast.success("Logado", { autoClose: 2000 });
-    } catch (error) {
-      toast.error("Algo deu errado", { autoClose: 2000 });
-    }
-  };
   return (
     <DivLogin>
       <header>
@@ -39,8 +23,7 @@ export function Home() {
       </header>
       <DivForm>
         <h3>Login</h3>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          
+        <form onSubmit={handleSubmit(onSubmitLogin)}>
           <Inputs
             id={"email"}
             label={"Email"}

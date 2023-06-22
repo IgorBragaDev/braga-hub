@@ -3,15 +3,16 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { RouterMain } from "./routes/routes";
 import { GlobalStyle } from "./styles/globalStyles";
 import { GlobalProvider } from "./providers";
+import { UserProvider } from "./providers/userprovider";
 
 function App() {
   return (
     <div className="App">
-      <GlobalProvider>
+      <UserProvider>
         <GlobalStyle />
         <RouterMain />
         <ToastContainer />
-      </GlobalProvider>
+      </UserProvider>
     </div>
   );
 }
