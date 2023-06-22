@@ -7,7 +7,6 @@ import { DivLogin, DivForm, Input, Buton } from "./styles";
 import { loginSchema } from "../../utils/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { InputIv } from "../Input/input";
 export function LoginPage() {
   const navigate = useNavigate();
 
