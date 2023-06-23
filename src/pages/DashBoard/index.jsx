@@ -3,14 +3,21 @@ import { api } from "../../service";
 import { DivHeader, DashContainer, DivBody } from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import { TechContext } from "../../providers/techProvider";
+import { ModalTech } from "../../components/AddTechModal/Modal";
+import buttonPlus from "../../assets/button.png";
 
 export function DashBoard() {
-  const { userLogado, dados, logout } = useContext(TechContext);
+  const { userLogado, userData, logout, openModal } = useContext(TechContext);
 
   useEffect(() => {
     userLogado();
   }, []);
-
+  function openModalTech() {
+    openModal();
+  }
+  function editModal(tech){
+    console.log(tech)
+  }
   return (
     <DashContainer>
       <div className="pageContainer">
@@ -24,17 +31,28 @@ export function DashBoard() {
         </div>
 
         <DivBody>
-          <h2>{`Olá, ${dados.name}`}</h2>
-          <p>{dados.course_module}</p>
+          <h2>{`Olá, ${userData.name}`}</h2>
+          <p>{userData.course_module}</p>
         </DivBody>
 
         <div className="informContainer">
           <h3> Tecnologias </h3>
-
-          <button>adcionar</button>
+          <button onClick={openModalTech}>
+            <img src={buttonPlus}></img>
+          </button>
         </div>
-
-        <div></div>
+        <ModalTech />
+        <div className="techContainer">
+          <ul>
+            {userData.techs &&
+              userData.techs.map((tech) => (
+                <li key={tech.id} onClick={()=>editModal(tech.title)}>
+                  <h3>{tech.title}</h3>
+                  <p>{tech.status}</p>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </DashContainer>
   );

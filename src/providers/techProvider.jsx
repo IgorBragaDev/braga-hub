@@ -8,7 +8,18 @@ export const TechContext = createContext({});
 export const TechProvider = ({ children }) => {
   const userToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
-  const [dados, setDados] = useState({});
+  const [userData, setUserData] = useState({});
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   const userLogado = async () => {
     try {
       await api
@@ -19,8 +30,9 @@ export const TechProvider = ({ children }) => {
           },
         })
         .then((res) => {
-          console.log(res.data.techs);
-          setDados(res.data);
+          
+          setUserData(res.data);
+          
         });
     } catch (error) {
       navigate("/");
@@ -30,9 +42,32 @@ export const TechProvider = ({ children }) => {
     localStorage.clear();
     navigate("/");
   }
+  const onSubimitTech = async (data) => {
+    
+    try {
+      await api.post("/users/techs", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+      console.log(data);
+      closeModal()
+    } catch (error) {}
+  };
 
   return (
-    <TechContext.Provider value={{ dados, userLogado, logout }}>
+    <TechContext.Provider
+      value={{
+        userData,
+        userLogado,
+        logout,
+        openModal,
+        modalIsOpen,
+        closeModal,
+        onSubimitTech,
+      }}
+    >
       {children}
     </TechContext.Provider>
   );

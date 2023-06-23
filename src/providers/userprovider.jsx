@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   const onSubmitLogin = async (data) => {
     try {
       await api.post("/sessions", data).then((res) => {
-        console.log(res);
+        
         window.localStorage.clear();
         window.localStorage.setItem("authToken", res.data.token);
         window.localStorage.setItem("userId", res.data.user.id);

@@ -5,15 +5,15 @@ export const DashContainer = styled.div`
   height: 100vh;
 
   .informContainer {
-    display: none;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
     padding: 16px 20px;
-    color: white;
 
-    @media (min-width: 1024px) {
-      display: flex;
-      align-content: center;
-      justify-content: space-between;
-      align-items: center;
+    button {
+      background-color: transparent;
+      border: none;
     }
 
     h3 {
@@ -38,6 +38,40 @@ export const DashContainer = styled.div`
     margin: 0 auto;
     width: 100%;
     max-width: 1024px;
+  }
+
+  .techContainer {
+    padding: 16px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px;
+      background-color: var(--Grey-3);
+    }
+
+    li {
+      height: 49px;
+      padding: 0px 10px;
+      font-family: var(--base-font);
+      color: var(--Grey-0);
+      display: flex;
+      justify-content: space-between;
+      border-radius: 4px;
+      background: #121214;
+
+      h3 {
+        font-size: 14.212px;
+        font-weight: 700;
+        line-height: 24.364px;
+      }
+      p {
+        color: var(--Grey-1);
+        text-align: right;
+        font-size: 12.182px;
+        line-height: 22.334px;
+      }
+    }
   }
 `;
 
