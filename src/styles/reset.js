@@ -4,16 +4,17 @@ export const Reset = createGlobalStyle`
 
 
 *{
-    margin : 0 px;
-    padding : 0 px;
+    margin : 0 ;
+    padding : 0;
     box-sizing : border-box;
     list-style : none; 
 }
 
 body{
-    margin: 0px;
     
+    background-color: var(--Grey-4);
 }
+
 button{
     cursor: pointer;
 }

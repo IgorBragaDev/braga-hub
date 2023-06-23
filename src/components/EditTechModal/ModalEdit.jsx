@@ -2,37 +2,31 @@ import { useContext } from "react";
 import { TechContext } from "../../providers/techProvider";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { techSchema } from "../../utils/techSchema";
+import { editTechSchema } from "../../utils/techSchema";
 import { StyledModal } from "./styles";
 
-export function ModalTech() {
-  const { modalIsOpen, closeModal, onSubimitTech } = useContext(TechContext);
+import Modal from "react-modal";
 
+export function ModalEditTech() {
+  const { modaEditlIsOpen, closeEditModal, onEditTech, techNames ,onExcludeTech } =
+    useContext(TechContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(techSchema) });
-
+  } = useForm({ resolver: zodResolver(editTechSchema) });
+  
   return (
     <div>
-      <StyledModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className="modalStyles"
-      >
+      <StyledModal isOpen={modaEditlIsOpen} onRequestClose={closeEditModal}>
         <div className="modalTittle">
           <h2>Cadastrar Tecnologia</h2>
-          <button onClick={closeModal}>x</button>
+          <button onClick={closeEditModal}>x</button>
         </div>
-        <form onSubmit={handleSubmit(onSubimitTech)} className="styledForm">
+        <form onSubmit={handleSubmit(onEditTech)} className="styledForm">
           <label htmlFor="title">Nome</label>
-          <input
-            type="text"
-            id="title"
-            {...register("title")}
-            error={errors.name?.message}
-          />
+          <input type="text" placeholder={techNames} readOnly />
+
           <label htmlFor="status">Selecionar Status</label>
           <select name="status" id="status" {...register("status")}>
             <option value="">Escolha um nivel</option>
@@ -41,7 +35,10 @@ export function ModalTech() {
             <option value="Avançado">Avançado</option>
           </select>
 
-          <button type="submit"> Cadastrar Tecnolgia </button>
+          <div className="buttonContainer">
+            <button type="submit">Editar</button>
+            <button onClick={onExcludeTech}>Excluir</button>
+          </div>
         </form>
       </StyledModal>
     </div>

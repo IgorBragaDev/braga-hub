@@ -9,6 +9,8 @@ export const TechProvider = ({ children }) => {
   const userToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
+  const [idTech, setIdTech] = useState("");
+  const [techNames, setTechNames] = useState("");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -30,9 +32,7 @@ export const TechProvider = ({ children }) => {
           },
         })
         .then((res) => {
-          
           setUserData(res.data);
-          
         });
     } catch (error) {
       navigate("/");
@@ -43,7 +43,6 @@ export const TechProvider = ({ children }) => {
     navigate("/");
   }
   const onSubimitTech = async (data) => {
-    
     try {
       await api.post("/users/techs", data, {
         headers: {
@@ -51,9 +50,53 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${userToken}`,
         },
       });
-      console.log(data);
-      closeModal()
+      userLogado();
+      closeModal();
     } catch (error) {}
+  };
+
+  function editModal(techId, techName) {
+    setIdTech(techId);
+    setTechNames(techName);
+  }
+
+  const [modaEditlIsOpen, setModaEditlIsOpen] = useState(false);
+
+  const openEditModal = () => {
+    setModaEditlIsOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setModaEditlIsOpen(false);
+  };
+  const onEditTech = async (data) => {
+    try {
+      await api.put(`/users/techs/${idTech} `, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+      userLogado();
+      closeEditModal();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onExcludeTech = async () => {
+    try {
+      await api.delete(`/users/techs/${idTech} `, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+      userLogado();
+      closeEditModal();
+    } catch (error) {
+     
+    }
   };
 
   return (
@@ -66,6 +109,13 @@ export const TechProvider = ({ children }) => {
         modalIsOpen,
         closeModal,
         onSubimitTech,
+        modaEditlIsOpen,
+        openEditModal,
+        closeEditModal,
+        onEditTech,
+        editModal,
+        techNames,
+        onExcludeTech,
       }}
     >
       {children}

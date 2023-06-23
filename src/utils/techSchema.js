@@ -5,3 +5,8 @@ export const techSchema = z.object({
 
   status: z.string().min(1, "Escolha o nivel em que está"),
 });
+
+export const editTechSchema = z.object({
+
+  status: z.string().min(1, "Escolha o nivel em que está"),
+})

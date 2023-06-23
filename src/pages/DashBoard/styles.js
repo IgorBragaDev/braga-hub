@@ -52,7 +52,7 @@ export const DashContainer = styled.div`
 
     li {
       height: 49px;
-      padding: 0px 10px;
+      padding: 16px 20px;
       font-family: var(--base-font);
       color: var(--Grey-0);
       display: flex;
