@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DashContainer = styled.div`
   background-color: var(--Grey-4);
-  height: 100vh;
+  
 
   .informContainer {
     display: flex;
