@@ -113,4 +113,5 @@ export const HeaderButton = styled(Link)`
   line-height: 23px;
   text-align: center;
   color: var(--Grey-0);
+  margin-bottom: 10px;
 `;

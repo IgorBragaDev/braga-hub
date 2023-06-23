@@ -5,12 +5,12 @@ export const DivLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 110vh;
-  background-color: #000000;
+  justify-content: center;
+ 
   padding: 95px 20px;
   color: var(--Grey-0);
   font-family: var(--base-font);
-
+  height: 100vh;
  
   h3:nth-child(1) {
     text-align: center;
@@ -29,8 +29,8 @@ export const DivForm = styled.div`
   min-width: 296px;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  height: 100%;
-  max-height: 570px;
+  
+  
 
 
   form {
