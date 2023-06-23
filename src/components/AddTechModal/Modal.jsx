@@ -6,6 +6,11 @@ import { techSchema } from "../../utils/techSchema";
 import { StyledModal } from "./styles";
 
 export function ModalTech() {
+  const bg = {
+    overlay: {
+      background: "#00000065",
+    },
+  };
   const { modalIsOpen, closeModal, onSubimitTech } = useContext(TechContext);
 
   const {
@@ -20,6 +25,7 @@ export function ModalTech() {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className="modalStyles"
+        style={bg}
       >
         <div className="modalTittle">
           <h2>Cadastrar Tecnologia</h2>

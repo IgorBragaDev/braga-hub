@@ -5,20 +5,32 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { editTechSchema } from "../../utils/techSchema";
 import { StyledModal } from "./styles";
 
-import Modal from "react-modal";
-
 export function ModalEditTech() {
-  const { modaEditlIsOpen, closeEditModal, onEditTech, techNames ,onExcludeTech } =
-    useContext(TechContext);
+  const bg = {
+    overlay: {
+      background: "#00000065",
+    },
+  };
+  const {
+    modaEditlIsOpen,
+    closeEditModal,
+    onEditTech,
+    techNames,
+    onExcludeTech,
+  } = useContext(TechContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(editTechSchema) });
-  
+
   return (
-    <div>
-      <StyledModal isOpen={modaEditlIsOpen} onRequestClose={closeEditModal}>
+    <div className="pageContainer">
+      <StyledModal
+        isOpen={modaEditlIsOpen}
+        onRequestClose={closeEditModal}
+        style={bg}
+      >
         <div className="modalTittle">
           <h2>Cadastrar Tecnologia</h2>
           <button onClick={closeEditModal}>x</button>

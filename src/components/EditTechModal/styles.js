@@ -2,6 +2,7 @@ import Modal from "react-modal";
 import styled from "styled-components";
 
 export const StyledModal = styled(Modal)`
+  
   width: 100%;
   max-width: 350px;
   position: fixed;
@@ -38,6 +39,8 @@ export const StyledModal = styled(Modal)`
   .styledForm {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 325px;
     gap: 10px;
     padding: 16px 20px;
     border-radius: 3.209px;
@@ -46,9 +49,9 @@ export const StyledModal = styled(Modal)`
       rgba(0, 0, 0, 0.25);
     label {
       color: var(--Grey-0);
-      font-size: 11px;
+      font-size: 13px;
       font-family: var(--base-font);
-      line-height: 10px;
+      line-height: 0px;
     }
     input,
     select {
@@ -90,4 +93,5 @@ export const StyledModal = styled(Modal)`
       }
     }
   }
+  
 `;

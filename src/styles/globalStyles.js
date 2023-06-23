@@ -19,6 +19,14 @@ export const GlobalStyle = createGlobalStyle`
     --information-feedback: #155BCB;
 
     --base-font: 'Inter', sans-serif;
+
+
+}
+
+body{
+    .ReactModal__Overlay{
+        background-color: rgba(255, 255, 255, 0.15);
+    }
 }
 
 
