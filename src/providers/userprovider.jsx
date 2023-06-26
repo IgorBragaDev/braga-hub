@@ -49,6 +49,7 @@ export const UserProvider = ({ children }) => {
 
   function autoLogin() {
     useEffect(() => {
+      console.log("Entrei")
       const isAuthenticated = checkAuthentication();
 
       if (isAuthenticated) {

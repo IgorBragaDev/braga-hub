@@ -6,15 +6,17 @@ import { StyledLogo } from "../../components/Logo/styles";
 import { Inputs } from "../../components/Input/input";
 import { UserContext } from "../../providers/userprovider";
 import { useContext, useEffect } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+
 
 export function Home() {
   const { onSubmitLogin, autoLogin } = useContext(UserContext);
 
-  useEffect(() => {
-    autoLogin();
-  }, []);
+//  useEffect(()=>{
+//   console.log("teste")
+//   autoLogin();
+//  },[])
 
+autoLogin();
   const {
     register,
     handleSubmit,
