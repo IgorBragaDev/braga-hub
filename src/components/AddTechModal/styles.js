@@ -75,5 +75,7 @@ export const StyledModal = styled(Modal)`
       font-weight: 500;
       line-height: 21.173px;
     }
+
+   
   }
 `;

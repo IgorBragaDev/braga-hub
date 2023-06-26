@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { api } from "../service/index";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const UserContext = createContext({});
 
@@ -10,7 +11,6 @@ export const UserProvider = ({ children }) => {
   const onSubmitLogin = async (data) => {
     try {
       await api.post("/sessions", data).then((res) => {
-        
         window.localStorage.clear();
         window.localStorage.setItem("authToken", res.data.token);
         window.localStorage.setItem("userId", res.data.user.id);
@@ -37,8 +37,31 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  function checkAuthentication() {
+    const userToken = localStorage.getItem("authToken");
+
+    if (userToken == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function autoLogin() {
+    useEffect(() => {
+      const isAuthenticated = checkAuthentication();
+
+      if (isAuthenticated) {
+        console.log("funfou");
+        navigate("/dashboard");
+      }
+    });
+  }
+
   return (
-    <UserContext.Provider value={{ onSubmitLogin, onSubmitRegister }}>
+    <UserContext.Provider
+      value={{ onSubmitLogin, onSubmitRegister, autoLogin }}
+    >
       {children}
     </UserContext.Provider>
   );

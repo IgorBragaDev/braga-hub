@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
-import { DivLogin, DivForm, Buton,LinkTeste } from "./styles";
+import { DivLogin, DivForm, Buton, LinkTeste } from "./styles";
 import { loginSchema } from "../../utils/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { StyledLogo } from "../../components/Logo/styles";
 import { Inputs } from "../../components/Input/input";
 import { UserContext } from "../../providers/userprovider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
 export function Home() {
-  const { onSubmitLogin } = useContext(UserContext);
+  const { onSubmitLogin, autoLogin } = useContext(UserContext);
+
+  autoLogin();
 
   const {
     register,
