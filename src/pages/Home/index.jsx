@@ -11,7 +11,9 @@ import { Navigate, Outlet } from "react-router-dom";
 export function Home() {
   const { onSubmitLogin, autoLogin } = useContext(UserContext);
 
-  autoLogin();
+  useEffect(() => {
+    autoLogin();
+  }, []);
 
   const {
     register,
