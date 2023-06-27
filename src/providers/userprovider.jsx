@@ -49,14 +49,14 @@ export const UserProvider = ({ children }) => {
 
   function autoLogin() {
     useEffect(() => {
-      console.log("Entrei")
+      console.log("Entrei");
       const isAuthenticated = checkAuthentication();
 
       if (isAuthenticated) {
         console.log("funfou");
         navigate("/dashboard");
       }
-    });
+    },[]);
   }
 
   return (
