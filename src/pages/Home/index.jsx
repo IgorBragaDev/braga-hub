@@ -7,16 +7,14 @@ import { Inputs } from "../../components/Input/input";
 import { UserContext } from "../../providers/userprovider";
 import { useContext, useEffect } from "react";
 
-
 export function Home() {
-  const { onSubmitLogin, autoLogin } = useContext(UserContext);
+  const { onSubmitLogin } = useContext(UserContext);
 
-//  useEffect(()=>{
-//   console.log("teste")
-//   autoLogin();
-//  },[])
+  //  useEffect(()=>{
+  //   console.log("teste")
+  //   autoLogin();
+  //  },[])
 
-autoLogin();
   const {
     register,
     handleSubmit,

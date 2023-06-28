@@ -35,7 +35,7 @@ export const TechProvider = ({ children }) => {
           setUserData(res.data);
         });
     } catch (error) {
-      navigate("/");
+      // navigate("/");
     }
   };
   function logout() {
