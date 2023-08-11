@@ -8,7 +8,7 @@ import { PublicRoutes } from "./publicRoutes";
 export function RouterMain() {
   return (
     <Routes>
-      <Route path="/" element={<PublicRoutes/>}>
+      <Route path="/" element={<PublicRoutes />}>
         <Route index element={<Home />} />
         <Route path="/register" element={<RegisterPage />} />
       </Route>

@@ -10,11 +10,6 @@ import { useContext, useEffect } from "react";
 export function Home() {
   const { onSubmitLogin } = useContext(UserContext);
 
-  //  useEffect(()=>{
-  //   console.log("teste")
-  //   autoLogin();
-  //  },[])
-
   const {
     register,
     handleSubmit,

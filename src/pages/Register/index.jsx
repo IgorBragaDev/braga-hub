@@ -25,7 +25,7 @@ export function RegisterPage() {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-
+  console.log(register.value);
   return (
     <DivRegister>
       <header>
@@ -87,6 +87,7 @@ export function RegisterPage() {
               type={"text"}
               handle={register("contact")}
               error={errors.contact?.message}
+              
             />
             <div>
               <label htmlFor="nivel">Selecionar módulo</label>
