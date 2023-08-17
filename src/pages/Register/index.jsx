@@ -14,6 +14,8 @@ import { Logo } from "../../components/Logo/logo";
 import { Inputs } from "../../components/Input/input";
 import { useContext } from "react";
 import { UserContext } from "../../providers/userprovider";
+import { FaSpinner } from 'react-icons/fa';
+
 
 export function RegisterPage() {
   const { onSubmitRegister } = useContext(UserContext);
@@ -116,6 +118,7 @@ export function RegisterPage() {
           </DivDeGap>
         </form>
       </DivFormRegister>
+      
     </DivRegister>
   );
 }
