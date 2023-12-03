@@ -27,7 +27,6 @@ export function RegisterPage() {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-  console.log(register.value);
   return (
     <DivRegister>
       <header>

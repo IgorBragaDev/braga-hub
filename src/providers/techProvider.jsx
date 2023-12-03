@@ -14,6 +14,7 @@ export const TechProvider = ({ children }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  console.log(userToken)
   const openModal = () => {
     setModalIsOpen(true);
   };

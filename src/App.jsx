@@ -12,7 +12,7 @@ function App() {
         <TechProvider>
           <GlobalStyle />
           <RouterMain />
-        </TechProvider> 
+        </TechProvider>
         <ToastContainer />
       </UserProvider>
     </div>

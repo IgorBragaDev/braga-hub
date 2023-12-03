@@ -37,28 +37,6 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  // function checkAuthentication() {
-  //   const userToken = localStorage.getItem("authToken");
-
-  //   if (userToken == null) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
-
-  // function autoLogin() {
-  //   useEffect(() => {
-  //     console.log("Entrei");
-  //     const isAuthenticated = checkAuthentication();
-
-  //     if (isAuthenticated) {
-  //       console.log("funfou");
-  //       navigate("/dashboard");
-  //     }
-  //   },[]);
-  // }
-
   return (
     <UserContext.Provider
       value={{ onSubmitLogin, onSubmitRegister }}

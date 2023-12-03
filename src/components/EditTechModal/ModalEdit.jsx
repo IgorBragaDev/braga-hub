@@ -41,7 +41,7 @@ export function ModalEditTech() {
 
           <label htmlFor="status">Selecionar Status</label>
           <select name="status" id="status" {...register("status")}>
-            <option value="">Escolha um nivel</option>
+            <option value=""></option>
             <option value="Iniciante">Iniciante</option>
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
