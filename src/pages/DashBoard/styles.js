@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const DashContainer = styled.div`
   background-color: var(--Grey-4);
-  
 
   .informContainer {
     display: flex;
@@ -51,6 +50,7 @@ export const DashContainer = styled.div`
     }
 
     li {
+      cursor: pointer;
       height: 49px;
       padding: 16px 20px;
       font-family: var(--base-font);

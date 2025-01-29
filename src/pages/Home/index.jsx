@@ -19,7 +19,7 @@ export function Home() {
   return (
     <DivLogin>
       <header>
-        <StyledLogo>Kenzie Hub</StyledLogo>
+        <StyledLogo>Braga Hub</StyledLogo>
       </header>
       <DivForm>
         <h3>Login</h3>

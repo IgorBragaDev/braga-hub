@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
       toast.error("Algo deu errado", { autoClose: 2000 });
     }
   };
+
   const onSubmitRegister = async (data) => {
     console.log(data);
     try {
@@ -38,9 +39,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider
-      value={{ onSubmitLogin, onSubmitRegister }}
-    >
+    <UserContext.Provider value={{ onSubmitLogin, onSubmitRegister }}>
       {children}
     </UserContext.Provider>
   );

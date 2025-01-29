@@ -18,7 +18,6 @@ export function DashBoard() {
     openModal();
   }
   function openEditModaltech() {
-  
     openEditModal();
   }
 
@@ -28,7 +27,7 @@ export function DashBoard() {
         <div>
           <header>
             <DivHeader>
-              <h2>Kenzie hub </h2>
+              <h2>Braga hub </h2>
               <button onClick={logout}>Sair</button>
             </DivHeader>
           </header>
@@ -54,7 +53,7 @@ export function DashBoard() {
                 <li
                   key={tech.id}
                   onClick={() => {
-                    editModal(tech.id , tech.title);
+                    editModal(tech.id, tech.title);
                     openEditModaltech();
                   }}
                 >
